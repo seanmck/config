@@ -1,4 +1,4 @@
-set swapfile
+set noswapfile
 set directory=~/tmp
 set shortmess=a
 set cmdheight=2
@@ -10,3 +10,5 @@ syntax enable
 set autoindent
 
 set hlsearch
+
+colorscheme corporation
