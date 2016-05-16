@@ -17,4 +17,6 @@ UNDERLINE=$(tput smul)
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 source "${GITAWAREPROMPT}/main.sh"
 
-export PS1="[${POWDER_BLUE}\u@\h \W] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+export PS1="\[${POWDER_BLUE}\]\u@\h \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+
+source ~/Downloads/git-completion.bash
