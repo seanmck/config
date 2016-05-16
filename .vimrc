@@ -11,4 +11,4 @@ set autoindent
 
 set hlsearch
 
-colorscheme corporation
+colorscheme solarized 
