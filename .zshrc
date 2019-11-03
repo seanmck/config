@@ -1,7 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 export PATH="$PATH:/Users/seanmck/work/kubernetes/aadconfig/istio-0.8.0/bin"
+export PATH="$PATH:/Users/seanmck/work/aks/keda/Azure.Functions.Cli.osx-x64.2.7.72"
+export PATH=$PATH:$HOME/.linkerd2/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/seanmck/.oh-my-zsh
@@ -10,8 +11,6 @@ export ZSH=/Users/seanmck/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
 # cause zsh load theme from this variable instead of
@@ -63,10 +62,20 @@ POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  kube-ps1
+  virtualenv
+  tmux
 )
+
+POWERLEVEL9K_CUSTOM_KUBE_PS1='kube_ps1'
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+POWERLEVEL9K_COLOR_SCHEME='light'
+
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv custom_kube_ps1)
 
 source $ZSH/oh-my-zsh.sh
 source <(kubectl completion zsh)
+source <(helm completion zsh)
 
 
 # User configuration
@@ -104,12 +113,15 @@ DEFAULT_USER="seanmck"
 alias k=kubectl
 alias rec="asciinema rec"
 alias watch="watch -n 3 "
-alias kctx="kubectl config use-context "
+alias kcdebug="kubectl run -i --tty --rm --generator=run-pod/v1 --image ubuntu --restart=Never -- bash"
 source ~/.bash_aliases
+
+source ~/demos/events/fnw2019/.fnw_aliases
 
 autoload bashcompinit && bashcompinit
 source /usr/local/etc/bash_completion.d/az
 source /etc/bash_completion.d/azds
+# source ~/completions/istioctl.bash
 
 # Other exports
 
