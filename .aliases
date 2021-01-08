@@ -1,0 +1,5 @@
+alias aksls='az aks list'
+alias watch='watch -n 3 '
+alias kctx='kubectx'
+alias akscreds='az aks get-credentials '
+alias aksdel='az aks delete --no-wait -y '

@@ -18,7 +18,7 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND='white'
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_BACKGROUND='032'
 
 DEFAULT_USER=`whoami`
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv custom_kube_ps1)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(virtualenv kubecontext)
 
 source ~/repos/github.com/ohmyzsh/ohmyzsh/plugins/kube-ps1/kube-ps1.plugin.zsh
 
@@ -116,9 +116,6 @@ DEFAULT_USER="seanmck"
 
 alias k=kubectl
 alias rec="asciinema rec"
-alias watch="watch -n 3 "
-alias kctx="kubectl config use-context "
-alias aksdel="az aks delete" 
 alias untar="tar -xvzf"
 
 source ~/.aliases
